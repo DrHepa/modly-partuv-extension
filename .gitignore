@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.downloads/
+.health/
+.runtime-state.json
+.installed-requirements.txt
+*.lock
+setup-config.json
+*.ckpt
+*.safetensors
+*.blend
+*.glb
+*.whl
