@@ -1,0 +1,30 @@
+{
+  "status": "development_preview_not_cross_platform_release",
+  "date": "2026-09-20",
+  "authoring_environment": {
+    "python": "3.13.5",
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "tests": {
+    "contract_tests_passed": 37,
+    "syntax_grammar": "Python 3.11",
+    "actual_python_311_312_execution": "not run"
+  },
+  "not_run": [
+    "full setup and dependency resolution",
+    "PartUV/PartField CUDA inference",
+    "Blender 5.2 packing/baking",
+    "material fidelity and independent UV overlap validation",
+    "Windows native execution",
+    "Linux ARM64 native execution",
+    "GitHub CI"
+  ],
+  "blockers": [
+    "No Windows PartUV native wheel supplied",
+    "No Linux ARM64 native stack supplied",
+    "No general changed-topology projection rebaker",
+    "Alpha cutoff semantics are not preserved; preview outputs blended alpha"
+  ],
+  "remote_publication": "not published"
+}

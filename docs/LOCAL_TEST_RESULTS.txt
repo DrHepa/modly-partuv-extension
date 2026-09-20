@@ -1,0 +1,43 @@
+test_arm64_native_gate (test_contracts.ContractTests.test_arm64_native_gate) ... ok
+test_atomic_json_roundtrip (test_contracts.ContractTests.test_atomic_json_roundtrip) ... ok
+test_bad_download_preserves_existing_checkpoint (test_contracts.ContractTests.test_bad_download_preserves_existing_checkpoint) ... ok
+test_blender_command_is_argument_list (test_contracts.ContractTests.test_blender_command_is_argument_list) ... ok
+test_boolean_string_false (test_contracts.ContractTests.test_boolean_string_false) ... ok
+test_correct_download_promotes_atomically (test_contracts.ContractTests.test_correct_download_promotes_atomically) ... ok
+test_custom_native_wheel_requires_hash (test_contracts.ContractTests.test_custom_native_wheel_requires_hash) ... ok
+test_defaults_config (test_contracts.ContractTests.test_defaults_config) ... ok
+test_explicit_models_root (test_contracts.ContractTests.test_explicit_models_root) ... ok
+test_integer_not_truncated (test_contracts.ContractTests.test_integer_not_truncated) ... ok
+test_linux_lanes (test_contracts.ContractTests.test_linux_lanes) ... ok
+test_manifest_matches_node_contract (test_contracts.ContractTests.test_manifest_matches_node_contract) ... ok
+test_missing_explicit_blender_not_silently_replaced (test_contracts.ContractTests.test_missing_explicit_blender_not_silently_replaced) ... ok
+test_models_conflict (test_contracts.ContractTests.test_models_conflict) ... ok
+test_models_inside_extension_rejected (test_contracts.ContractTests.test_models_inside_extension_rejected) ... ok
+test_no_guessed_models_directory (test_contracts.ContractTests.test_no_guessed_models_directory) ... ok
+test_nonfinite_parameters_rejected (test_contracts.ContractTests.test_nonfinite_parameters_rejected) ... ok
+test_processor_invalid_payload_exactly_one_error (test_contracts.ContractTests.test_processor_invalid_payload_exactly_one_error) ... ok
+test_python_311_syntax (test_contracts.ContractTests.test_python_311_syntax) ... ok
+test_python_313_not_selected_for_native_lane (test_contracts.ContractTests.test_python_313_not_selected_for_native_lane) ... ok
+test_relative_paths_rejected (test_contracts.ContractTests.test_relative_paths_rejected) ... ok
+test_runtime_state_bound_to_canonical_root (test_contracts.ContractTests.test_runtime_state_bound_to_canonical_root) ... ok
+test_setup_argument_forms (test_contracts.ContractTests.test_setup_argument_forms) ... ok
+test_storage_settings_bound_to_installation (test_contracts.ContractTests.test_storage_settings_bound_to_installation) ... ok
+test_transfer_requires_original_source (test_contracts.ContractTests.test_transfer_requires_original_source) ... ok
+test_unknown_and_paid_parameters_rejected (test_contracts.ContractTests.test_unknown_and_paid_parameters_rejected) ... ok
+test_weight_reuse_without_network (test_contracts.ContractTests.test_weight_reuse_without_network) ... Reusing verified /tmp/tmph52fpj41/model.ckpt
+ok
+test_windows_not_falsely_advertised (test_contracts.ContractTests.test_windows_not_falsely_advertised) ... ok
+test_changed_face_count_fails (test_contracts.CorrespondenceTests.test_changed_face_count_fails) ... ok
+test_duplicate_source_faces_are_ambiguous (test_contracts.CorrespondenceTests.test_duplicate_source_faces_are_ambiguous) ... ok
+test_geometry_change_fails (test_contracts.CorrespondenceTests.test_geometry_change_fails) ... ok
+test_missing_uv_fails (test_contracts.CorrespondenceTests.test_missing_uv_fails) ... ok
+test_normalized_mesh_restored_only_when_all_faces_match (test_contracts.CorrespondenceTests.test_normalized_mesh_restored_only_when_all_faces_match) ... ok
+test_obj_geometry_roundtrip (test_contracts.CorrespondenceTests.test_obj_geometry_roundtrip) ... ok
+test_obj_negative_indices (test_contracts.CorrespondenceTests.test_obj_negative_indices) ... ok
+test_obj_nonfinite_rejected (test_contracts.CorrespondenceTests.test_obj_nonfinite_rejected) ... ok
+test_vertex_face_corner_reordering (test_contracts.CorrespondenceTests.test_vertex_face_corner_reordering) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 3.011s
+
+OK

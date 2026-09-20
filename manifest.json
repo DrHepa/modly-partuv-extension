@@ -1,0 +1,457 @@
+{
+  "id": "modly-partuv-extension",
+  "name": "PartUV (Development Preview)",
+  "type": "process",
+  "entry": "processor.py",
+  "version": "0.1.0",
+  "author": "DrHepa",
+  "description": "Part-based UV unwrapping and free Blender packing/rebaking. Development preview: native Windows/ARM64 builds pending. PartField is restricted to non-commercial research/education.",
+  "nodes": [
+    {
+      "id": "unwrap_rebake",
+      "name": "PartUV · Unwrap + Rebake",
+      "input": "mesh",
+      "output": "mesh",
+      "params_schema": [
+        {
+          "id": "blender_path",
+          "label": "Blender executable (empty = setup/auto)",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "id": "texture_size",
+          "label": "Atlas resolution per object",
+          "type": "int",
+          "default": 2048,
+          "min": 256,
+          "max": 8192
+        },
+        {
+          "id": "bake_margin",
+          "label": "Bake padding (pixels)",
+          "type": "int",
+          "default": 16,
+          "min": 2,
+          "max": 128
+        },
+        {
+          "id": "method",
+          "label": "Unwrap method",
+          "type": "select",
+          "default": "abf",
+          "options": [
+            {
+              "value": "abf",
+              "label": "ABF"
+            },
+            {
+              "value": "lscm",
+              "label": "LSCM"
+            }
+          ]
+        },
+        {
+          "id": "threshold",
+          "label": "Distortion threshold",
+          "type": "float",
+          "default": 1.25,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "pamo",
+          "label": "PAMO optimization (requires compatible native CUDA kernel)",
+          "type": "select",
+          "default": "true",
+          "options": [
+            {
+              "value": "false",
+              "label": "false"
+            },
+            {
+              "value": "true",
+              "label": "true"
+            }
+          ]
+        },
+        {
+          "id": "abf_iters",
+          "label": "Abf iters",
+          "type": "int",
+          "default": 5,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "agg_parts",
+          "label": "Agg parts",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "parallel_depth",
+          "label": "Parallel depth",
+          "type": "int",
+          "default": 10,
+          "min": 0,
+          "max": 30
+        },
+        {
+          "id": "component_max_depth",
+          "label": "Component max depth",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 30
+        },
+        {
+          "id": "threads",
+          "label": "Threads",
+          "type": "int",
+          "default": 8,
+          "min": 1,
+          "max": 128
+        },
+        {
+          "id": "cuda_streams",
+          "label": "Cuda streams",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 64
+        },
+        {
+          "id": "pamo_face_threshold",
+          "label": "Pamo face threshold",
+          "type": "int",
+          "default": 1000,
+          "min": 1,
+          "max": 10000000
+        },
+        {
+          "id": "check_self_intersection",
+          "label": "Check self intersection",
+          "type": "select",
+          "default": "false",
+          "options": [
+            {
+              "value": "false",
+              "label": "false"
+            },
+            {
+              "value": "true",
+              "label": "true"
+            }
+          ]
+        },
+        {
+          "id": "check_non_manifold",
+          "label": "Check non manifold",
+          "type": "select",
+          "default": "true",
+          "options": [
+            {
+              "value": "false",
+              "label": "false"
+            },
+            {
+              "value": "true",
+              "label": "true"
+            }
+          ]
+        },
+        {
+          "id": "sample_on_faces",
+          "label": "PartField samples per face",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "sample_batch_size",
+          "label": "PartField sample batch size",
+          "type": "int",
+          "default": 100000,
+          "min": 1000,
+          "max": 1000000
+        },
+        {
+          "id": "merge_epsilon",
+          "label": "Merge epsilon (0 = disabled)",
+          "type": "float",
+          "default": 0.0,
+          "min": 0,
+          "max": 0.001
+        },
+        {
+          "id": "seed",
+          "label": "Seed",
+          "type": "int",
+          "default": 42,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "id": "unwrap",
+      "name": "PartUV · Unwrap (untextured)",
+      "input": "mesh",
+      "output": "mesh",
+      "params_schema": [
+        {
+          "id": "blender_path",
+          "label": "Blender executable (empty = setup/auto)",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "id": "texture_size",
+          "label": "Atlas resolution per object",
+          "type": "int",
+          "default": 2048,
+          "min": 256,
+          "max": 8192
+        },
+        {
+          "id": "bake_margin",
+          "label": "Bake padding (pixels)",
+          "type": "int",
+          "default": 16,
+          "min": 2,
+          "max": 128
+        },
+        {
+          "id": "method",
+          "label": "Unwrap method",
+          "type": "select",
+          "default": "abf",
+          "options": [
+            {
+              "value": "abf",
+              "label": "ABF"
+            },
+            {
+              "value": "lscm",
+              "label": "LSCM"
+            }
+          ]
+        },
+        {
+          "id": "threshold",
+          "label": "Distortion threshold",
+          "type": "float",
+          "default": 1.25,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "pamo",
+          "label": "PAMO optimization (requires compatible native CUDA kernel)",
+          "type": "select",
+          "default": "true",
+          "options": [
+            {
+              "value": "false",
+              "label": "false"
+            },
+            {
+              "value": "true",
+              "label": "true"
+            }
+          ]
+        },
+        {
+          "id": "abf_iters",
+          "label": "Abf iters",
+          "type": "int",
+          "default": 5,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "agg_parts",
+          "label": "Agg parts",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "parallel_depth",
+          "label": "Parallel depth",
+          "type": "int",
+          "default": 10,
+          "min": 0,
+          "max": 30
+        },
+        {
+          "id": "component_max_depth",
+          "label": "Component max depth",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 30
+        },
+        {
+          "id": "threads",
+          "label": "Threads",
+          "type": "int",
+          "default": 8,
+          "min": 1,
+          "max": 128
+        },
+        {
+          "id": "cuda_streams",
+          "label": "Cuda streams",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 64
+        },
+        {
+          "id": "pamo_face_threshold",
+          "label": "Pamo face threshold",
+          "type": "int",
+          "default": 1000,
+          "min": 1,
+          "max": 10000000
+        },
+        {
+          "id": "check_self_intersection",
+          "label": "Check self intersection",
+          "type": "select",
+          "default": "false",
+          "options": [
+            {
+              "value": "false",
+              "label": "false"
+            },
+            {
+              "value": "true",
+              "label": "true"
+            }
+          ]
+        },
+        {
+          "id": "check_non_manifold",
+          "label": "Check non manifold",
+          "type": "select",
+          "default": "true",
+          "options": [
+            {
+              "value": "false",
+              "label": "false"
+            },
+            {
+              "value": "true",
+              "label": "true"
+            }
+          ]
+        },
+        {
+          "id": "sample_on_faces",
+          "label": "PartField samples per face",
+          "type": "int",
+          "default": 10,
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "sample_batch_size",
+          "label": "PartField sample batch size",
+          "type": "int",
+          "default": 100000,
+          "min": 1000,
+          "max": 1000000
+        },
+        {
+          "id": "merge_epsilon",
+          "label": "Merge epsilon (0 = disabled)",
+          "type": "float",
+          "default": 0.0,
+          "min": 0,
+          "max": 0.001
+        },
+        {
+          "id": "seed",
+          "label": "Seed",
+          "type": "int",
+          "default": 42,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "id": "repack_rebake",
+      "name": "PartUV · Repack + Rebake",
+      "input": "mesh",
+      "output": "mesh",
+      "params_schema": [
+        {
+          "id": "blender_path",
+          "label": "Blender executable (empty = setup/auto)",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "id": "texture_size",
+          "label": "Atlas resolution per object",
+          "type": "int",
+          "default": 2048,
+          "min": 256,
+          "max": 8192
+        },
+        {
+          "id": "bake_margin",
+          "label": "Bake padding (pixels)",
+          "type": "int",
+          "default": 16,
+          "min": 2,
+          "max": 128
+        }
+      ]
+    },
+    {
+      "id": "transfer",
+      "name": "PartUV · Transfer Textures",
+      "input": "mesh",
+      "output": "mesh",
+      "params_schema": [
+        {
+          "id": "blender_path",
+          "label": "Blender executable (empty = setup/auto)",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "id": "source_mesh",
+          "label": "Original textured mesh (before UV changes)",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "id": "texture_size",
+          "label": "Atlas resolution per object",
+          "type": "int",
+          "default": 2048,
+          "min": 256,
+          "max": 8192
+        },
+        {
+          "id": "bake_margin",
+          "label": "Bake padding (pixels)",
+          "type": "int",
+          "default": 16,
+          "min": 2,
+          "max": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "reviewed_on": "2026-09-20",
+  "modly": {"version": "0.4.2", "ref": "1476fd0b1c19c9ab177c1ca3ee4d1842119e9f65", "bundled_python": "3.11.9"},
+  "partuv": {
+    "version": "0.1.2",
+    "source": "https://github.com/EricWang12/PartUV",
+    "wheels": {
+      "cp311": {"filename": "partuv-0.1.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", "sha256": "27f496d6152d2d78454de3b9f1b8cf1fb3cf6921bc5a2f85960e7663dc97c985"},
+      "cp312": {"filename": "partuv-0.1.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", "sha256": "dcffaecde98c1e4a0e97ddf99ec9b229079d79cb172a17817a7416f3df2519f5"}
+    }
+  },
+  "checkpoint": {
+    "repo": "mikaelaangel/partfield-ckpt",
+    "revision": "f8cda8fd7dcef0596654015a482cc89407977a29",
+    "filename": "model_objaverse.ckpt",
+    "sha256": "463efc8a3afd3913142aa025e0125c00f16ef452b8de6a132ebe32bbe7877ee4",
+    "license_notice": "PartField: NVIDIA non-commercial research and educational use only"
+  }
+}
